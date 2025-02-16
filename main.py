@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QMainWindow
 from PyQt5.QtCore import Qt,QSize
-from PyQt5.QtGui import QFont,QIcon
+from PyQt5.QtGui import QFont,QIcon,QPixmap
 from static.window import *
 from static.styles import *
 from windows.verbHelp import *
@@ -30,7 +30,11 @@ class MainApp(QWidget):
     def initUI(self):
         self.setWindowTitle("Тест")
         self.setGeometry(500, 250, window_size[0],window_size[1])
-        self.setStyleSheet(background_window)
+        self.background=QLabel(self)
+        self.pixmap = QPixmap("resources/background.png")
+        self.background.setPixmap(self.pixmap)
+        self.background.setScaledContents(True)
+    
         self.setWindowFlags(Qt.FramelessWindowHint)
 
         self.main_l = QLabel(self)
