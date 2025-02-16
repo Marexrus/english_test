@@ -1,6 +1,10 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QMainWindow
 from PyQt5.QtGui import QFont
+from static.window import *
+from static.styles import *
+from windows.verbHelp import *
+from windows.infinitive_window import *
 
 window_size = [900, 700]
 
@@ -45,7 +49,7 @@ class MoodApp(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Тест")
-        self.setGeometry(300, 300, window_size[0], window_size[1])
+        self.setGeometry(0, 0, window_size[0],window_size[1])
 
         self.main_l = QLabel(self)
         self.main_l.setText("Выберите тест")
@@ -57,7 +61,7 @@ class MoodApp(QWidget):
         self.button1.setFont(QFont("Times", 16))
         self.button1.setGeometry(150, 200, 300, 80)
         self.button1.setStyleSheet(button_style)
-        self.button1.clicked.connect(self.infinitive)
+        self.button1.clicked.connect(self.openInfinitive)
 
         self.button2 = QPushButton(self)
         self.button2.setText("Past Simple")
@@ -71,20 +75,26 @@ class MoodApp(QWidget):
         self.button3.setGeometry(150, 400, 300, 80)
         self.button3.setStyleSheet(button_style)
 
-        self.button4 = QPushButton(self)
-        self.button4.setText("Смешанный")
+        self.button4=QPushButton("Смешанный", self)
         self.button4.setFont(QFont("Times", 16))
         self.button4.setGeometry(450, 400, 300, 80)
         self.button4.setStyleSheet(button_style)
 
-    def infinitive(self):
-        # Создаем новое окно
-        self.infinitive_window = InfinitiveWindow()
+        self.verbButton=QPushButton("Неправильные глаголы", self)
+        self.verbButton.setFont(QFont("Times", 8))
+        self.verbButton.setGeometry((window_size[0] - 500) // 2, window_size[1] - 100, 500, 80)
+        self.verbButton.setStyleSheet(button_style)
+        self.verbButton.clicked.connect(self.openVerbHelp)
+
+    def openVerbHelp(self):
+        self.verbHelp = verbHelp()
+        self.verbHelp.show()
+    
+    def openInfinitive(self):
+        self.infinitive_window = infinitive_window()
         self.infinitive_window.show()
 
-        # Скрываем текущее окно (опционально)
-        self.hide()
-
+        
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
