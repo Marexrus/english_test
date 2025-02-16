@@ -21,3 +21,7 @@ verbLabel="""
         QLabel{
             font-size:20px;
             }"""
+
+background_window="""background-color:#F3E5F5;"""
+
+default_text="""color:#FFFFFF;"""

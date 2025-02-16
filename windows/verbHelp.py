@@ -28,3 +28,4 @@ class verbHelp(QWidget):
 
         self.setWindowTitle("Памятка")
         self.setGeometry(150, 150, window_size[0]+200, window_size[1]+100)
+        self.setStyleSheet(background_window)
