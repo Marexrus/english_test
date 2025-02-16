@@ -6,27 +6,6 @@ from static.styles import *
 from windows.verbHelp import *
 from windows.infinitive_window import *
 
-window_size = [900, 700]
-
-button_style = """
-    QPushButton {
-        background-color: #7226EB;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 40px;
-        border-radius: 24px;
-    }
-    QPushButton:hover {
-        background-color: #571DB5;
-    }
-    QPushButton:pressed {
-        background-color: #3E3E3E;
-    }
-"""
-
 
 class InfinitiveWindow(QWidget):
     def __init__(self):

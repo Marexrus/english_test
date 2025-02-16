@@ -16,3 +16,8 @@ button_style="""
                 background-color: #3E3E3E; /* Цвет фона при нажатии */
             }
         """
+
+verbLabel="""
+        QLabel{
+            font-size:20px;
+            }"""
