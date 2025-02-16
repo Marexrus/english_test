@@ -57,4 +57,5 @@ Questions_past_participle = [
     Question("We have ___ the news.", "Мы услышали новости.", "heard"),
     Question("He has ___ his phone.", "Он сломал свой телефон.", "broken")
 ]
-        
+
+Questions_mixed = Questions_inf + Questions_past_simple + Questions_past_participle        
