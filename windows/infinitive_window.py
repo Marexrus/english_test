@@ -5,10 +5,12 @@ from PyQt5.QtGui import QFont,QPixmap
 from PyQt5.QtCore import Qt
 from static.questions import *
 from modules.randomizer import *
+from modules.check import *
 
 
 class infinitive_window(QWidget):
     question_counter = 0
+    answer_array = []
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -69,7 +71,9 @@ class infinitive_window(QWidget):
     
     def next(self):
         if self.line.text() == Questions_inf[Random_index[self.question_counter]].answer:
-            pass
+            answer_array.append(Answer(self.line.text(), True))
+        else:
+            answer_array.append(Answer(self.line.text(), False))
         if self.question_counter != 14:
             self.question_counter += 1
         else:
