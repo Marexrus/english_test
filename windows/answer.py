@@ -1,10 +1,9 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QGridLayout
 from static.window import *
 from static.styles import *
-from PyQt5.QtGui import QPalette, QColor
+from PyQt5.QtGui import QPalette, QColor, QFont
+from modules.check import Array
 #from verbs.verbs import *
-
-Array=[]
 
 for el in Array:
    print(f"{el.inf}--{el.PastSimple}--{el.PastPart}--{el.Translate}")
@@ -17,32 +16,36 @@ class AnswerWindow(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Памятка")
-        self.setGeometry(500, 250, window_size[0],window_size[1])
-        self.setFixedSize(window_size[0],window_size[1])
+        self.setWindowTitle("Ответы")
+        self.setGeometry(500, 50, window_size[0],window_size[1]+200)
+        self.setFixedSize(window_size[0],window_size[1]+200)
         self.setStyleSheet(background_window)
-        self.grid=QGridLayout(self)
+        self.grid=QGridLayout(self,spacing=0)
+        self.grid.setSpacing(0)
 
         self.row=0
         self.col=0
+        self.correctAnswer=0
         for i in range(len(Array)):
-            self.row=i // 3
-            self.col=i % 3
+            self.row=i // 2
+            self.col=i % 2
             self.label=QLabel(self)
-            self.label.setText(Array[i][0])
+            self.label.setText("{}--{}".format(Array[i].question,Array[i].answer))
             self.label.setStyleSheet(verbLabel)
+            self.label.setMaximumHeight(70)
             self.grid.addWidget(self.label,self.row,self.col)
 
-            self.redColor=self.label.pallet()
-            self.redColor.setColor(QPalette.windowText,QColor(255,0,0))
-            self.greenColor=self.label.pallet()
-            self.greenColor.setColor(QPalette.windowText,QColor(0,255,0))
+            self.redColor=self.label.palette()
+            self.redColor.setColor(QPalette.WindowText,QColor(255,0,0))
+            self.greenColor=self.label.palette()
+            self.greenColor.setColor(QPalette.WindowText,QColor(0,216,0))
 
-            if Array[1][1]:
+            if Array[i].is_right:
                 self.label.setPalette(self.greenColor)
-            if not Array[1][1]:
+                self.correctAnswer+=1
+            if not Array[i].is_right:
                 self.label.setPalette(self.redColor)
-        
+    
         self.backButton=QPushButton(self)
         self.backButton.setText("Назад")
         self.grid.addWidget(self.backButton,self.row,self.col+1)
@@ -51,6 +54,8 @@ class AnswerWindow(QWidget):
         self.backButton.clicked.connect(self.back)
         
         self.setLayout(self.grid)
+
+        self.setWindowTitle("{} правильных ответов".format(self.correctAnswer))
 
     def back(self):
         self.hide()
