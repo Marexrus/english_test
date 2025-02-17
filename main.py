@@ -6,6 +6,9 @@ from static.window import *
 from static.styles import *
 from windows.verbHelp import *
 from windows.infinitive_window import *
+from windows.pastSimple_window import *
+from windows.pastParticiple_window import *
+from windows.mixed_window import *
 
 
 class InfinitiveWindow(QWidget):
@@ -56,17 +59,20 @@ class MainApp(QWidget):
         self.button2.setFont(QFont("Times", 16))
         self.button2.setGeometry(500, 280, 320, 80)
         self.button2.setStyleSheet(button_style)
+        self.button2.clicked.connect(self.openPastSimple)
 
         self.button3 = QPushButton(self)
         self.button3.setText("Past Participle")
         self.button3.setFont(QFont("Times", 16))
         self.button3.setGeometry(90, 400, 320, 80)
         self.button3.setStyleSheet(button_style)
+        self.button3.clicked.connect(self.openPastParticiple)
 
         self.button4=QPushButton("Смешанный", self)
         self.button4.setFont(QFont("Times", 16))
         self.button4.setGeometry(500, 400, 320, 80)
         self.button4.setStyleSheet(button_style)
+        self.button4.clicked.connect(self.openMixed)
 
         self.verbButton=QPushButton("Неправильные глаголы", self)
         self.verbButton.setFont(QFont("Times", 8))
@@ -89,6 +95,17 @@ class MainApp(QWidget):
         self.infinitive_window = infinitive_window()
         self.infinitive_window.show()
 
+    def openPastSimple(self):
+        self.pastsimple_window = pastSimple_window()
+        self.pastsimple_window.show()
+    
+    def openPastParticiple(self):
+        self.pastParticiple_window = pastParticiple_window()
+        self.pastParticiple_window.show()
+
+    def openMixed(self):
+        self.mixedWindow = mixed_window()
+        self.mixedWindow.show()
         
 
 if __name__ == '__main__':

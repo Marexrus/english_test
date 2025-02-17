@@ -10,7 +10,7 @@ from modules.check import *
 from windows.answer import *
 
 
-class pastSimple_window(QWidget):
+class mixed_window(QWidget):
     question_counter = 0
     answer_array = []
     def __init__(self):
@@ -18,7 +18,7 @@ class pastSimple_window(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Past Simple")
+        self.setWindowTitle("Смешаный")
         self.setGeometry(500, 250, window_size[0], window_size[1])
         self.setFixedSize(window_size[0],window_size[1])
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -36,14 +36,14 @@ class pastSimple_window(QWidget):
         self.QuestionL.setAlignment(Qt.AlignCenter)
 
         self.QuestionEnL=QLabel(self)
-        self.QuestionEnL.setText(Questions_past_simple[Random_index[self.question_counter]].english)
+        self.QuestionEnL.setText(Questions_mixed[Random_index[self.question_counter]].english)
         self.QuestionEnL.setFont(QFont("Times", 28))
         self.QuestionEnL.setGeometry((window_size[0] - 900) // 2, 120, 900, 60)
         #self.QuestionEnL.setStyleSheet("""color:white;""")
         self.QuestionEnL.setAlignment(Qt.AlignCenter)
 
         self.QuestionRusL=QLabel(self)
-        self.QuestionRusL.setText(Questions_past_simple[Random_index[self.question_counter]].russian)
+        self.QuestionRusL.setText(Questions_mixed[Random_index[self.question_counter]].russian)
         self.QuestionRusL.setFont(QFont("Times", 25))
         self.QuestionRusL.setGeometry((window_size[0] - 900) // 2, 200, 900, 60)
         #self.QuestionRusL.setStyleSheet(""" color:white;""")
@@ -74,10 +74,10 @@ class pastSimple_window(QWidget):
         self.hide()
     
     def next(self):
-        if self.line.text() == Questions_past_simple[Random_index[self.question_counter]].answer:
-            Array.append(Answer(Questions_past_simple[Random_index[self.question_counter]].english,Questions_past_simple[Random_index[self.question_counter]].answer, True))
+        if self.line.text() == Questions_mixed[Random_index[self.question_counter]].answer:
+            Array.append(Answer(Questions_mixed[Random_index[self.question_counter]].english,Questions_mixed[Random_index[self.question_counter]].answer, True))
         else:
-            Array.append(Answer(Questions_past_simple[Random_index[self.question_counter]].english,Questions_past_simple[Random_index[self.question_counter]].answer, False))
+            Array.append(Answer(Questions_mixed[Random_index[self.question_counter]].english,Questions_mixed[Random_index[self.question_counter]].answer, False))
         if self.question_counter != 14:
             self.question_counter += 1
         else:
@@ -85,8 +85,8 @@ class pastSimple_window(QWidget):
             Array.clear()
 
         self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
-        self.QuestionEnL.setText(Questions_past_simple[Random_index[self.question_counter]].english)
-        self.QuestionRusL.setText(Questions_past_simple[Random_index[self.question_counter]].russian)
+        self.QuestionEnL.setText(Questions_mixed[Random_index[self.question_counter]].english)
+        self.QuestionRusL.setText(Questions_mixed[Random_index[self.question_counter]].russian)
         self.line.clear()
     
     def showAnswer(self):
