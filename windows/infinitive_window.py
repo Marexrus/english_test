@@ -5,12 +5,14 @@ from PyQt5.QtGui import QFont,QPixmap
 from PyQt5.QtCore import Qt
 from static.questions import *
 from modules.randomizer import *
+from modules.check import *
 
 from windows.answer import *
 
 
 class infinitive_window(QWidget):
     question_counter = 0
+    answer_array = []
     def __init__(self):
         super().__init__()
         self.initUI()
