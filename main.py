@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QMainWindow
 from PyQt5.QtCore import Qt,QSize
-from PyQt5.QtGui import QFont,QIcon
+from PyQt5.QtGui import QFont,QIcon,QPixmap
 from static.window import *
 from static.styles import *
 from windows.verbHelp import *
@@ -22,7 +22,7 @@ class InfinitiveWindow(QWidget):
         self.label.move(100,100)
 
 
-class MoodApp(QWidget):
+class MainApp(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -30,7 +30,11 @@ class MoodApp(QWidget):
     def initUI(self):
         self.setWindowTitle("Тест")
         self.setGeometry(500, 250, window_size[0],window_size[1])
-        self.setStyleSheet(background_window)
+        self.background=QLabel(self)
+        self.pixmap = QPixmap("resources/background.png")
+        self.background.setPixmap(self.pixmap)
+        self.background.setScaledContents(True)
+    
         self.setWindowFlags(Qt.FramelessWindowHint)
 
         self.main_l = QLabel(self)
@@ -88,6 +92,6 @@ class MoodApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = MoodApp()
+    ex = MainApp()
     ex.show()
     sys.exit(app.exec_())
