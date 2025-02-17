@@ -3,9 +3,12 @@ from static.window import *
 from static.styles import *
 from PyQt5.QtGui import QFont,QPixmap
 from PyQt5.QtCore import Qt
+from static.questions import *
+from modules.randomizer import *
 
 
 class infinitive_window(QWidget):
+    question_counter = 0
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -20,21 +23,21 @@ class infinitive_window(QWidget):
         #self.setStyleSheet(background_window)
 
         self.QuestionL=QLabel(self)
-        self.QuestionL.setText('Вопрос 1 из 15')
+        self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
         self.QuestionL.setFont(QFont("Times", 40))
         self.QuestionL.setGeometry((window_size[0] - 900) // 2, 40, 900, 60)
         self.QuestionL.setStyleSheet("""background-color:#131313; color:white;""")
         self.QuestionL.setAlignment(Qt.AlignCenter)
 
         self.QuestionEnL=QLabel(self)
-        self.QuestionEnL.setText('CHECK')
+        self.QuestionEnL.setText(Questions_inf[Random_index[self.question_counter]].english)
         self.QuestionEnL.setFont(QFont("Times", 35))
         self.QuestionEnL.setGeometry((window_size[0] - 900) // 2, 120, 900, 60)
         self.QuestionEnL.setStyleSheet("""background-color:#131313; color:white;""")
         self.QuestionEnL.setAlignment(Qt.AlignCenter)
 
         self.QuestionRusL=QLabel(self)
-        self.QuestionRusL.setText('CHECK')
+        self.QuestionRusL.setText(Questions_inf[Random_index[self.question_counter]].russian)
         self.QuestionRusL.setFont(QFont("Times", 30))
         self.QuestionRusL.setGeometry((window_size[0] - 900) // 2, 200, 900, 60)
         self.QuestionRusL.setStyleSheet("""background-color:rgba(19,19,19,0.75); color:white;""")
@@ -65,4 +68,14 @@ class infinitive_window(QWidget):
         self.hide()
     
     def next(self):
-        pass
+        if self.line.text() == Questions_inf[Random_index[self.question_counter]].answer:
+            pass
+        if self.question_counter != 14:
+            self.question_counter += 1
+        else:
+            pass
+        self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
+        self.QuestionEnL.setText(Questions_inf[Random_index[self.question_counter]].english)
+        self.QuestionRusL.setText(Questions_inf[Random_index[self.question_counter]].russian)
+        self.line.clear()
+        
