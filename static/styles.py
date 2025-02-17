@@ -48,7 +48,7 @@ button_back_style="""QPushButton{
 
 button_next_style="""
                 QPushButton {
-                background-color: #F07F1C; 
+                background-color: #E542FC; 
                 border: none; /* Убираем границу */
                 color: white; /* Белый цвет текста */
                 padding: 15px 32px; /* Отступы внутри кнопки */
@@ -58,7 +58,7 @@ button_next_style="""
                 border-radius: 24px; /* Скругление углов */
             }
             QPushButton:hover {
-                background-color: #D37019; /* Цвет фона при наведении */
+                background-color: #D63DEA; /* Цвет фона при наведении */
             }
             QPushButton:pressed {
                 background-color: #3E3E3E; /* Цвет фона при нажатии */
