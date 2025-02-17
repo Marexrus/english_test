@@ -30,6 +30,7 @@ class MainApp(QWidget):
     def initUI(self):
         self.setWindowTitle("Тест")
         self.setGeometry(500, 250, window_size[0],window_size[1])
+        self.setFixedSize(window_size[0],window_size[1])
         self.background=QLabel(self)
         self.pixmap = QPixmap("resources/background.png")
         self.background.setPixmap(self.pixmap)

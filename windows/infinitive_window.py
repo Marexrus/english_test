@@ -6,6 +6,8 @@ from PyQt5.QtCore import Qt
 from static.questions import *
 from modules.randomizer import *
 
+from windows.answer import *
+
 
 class infinitive_window(QWidget):
     question_counter = 0
@@ -16,6 +18,8 @@ class infinitive_window(QWidget):
     def initUI(self):
         self.setWindowTitle(" Инфинитив")
         self.setGeometry(500, 250, window_size[0], window_size[1])
+        self.setFixedSize(window_size[0],window_size[1])
+        self.setWindowFlags(Qt.FramelessWindowHint)
         self.background=QLabel(self)
         self.pixmap = QPixmap("resources/background-questions.png")
         self.background.setPixmap(self.pixmap)
@@ -26,21 +30,21 @@ class infinitive_window(QWidget):
         self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
         self.QuestionL.setFont(QFont("Times", 40))
         self.QuestionL.setGeometry((window_size[0] - 900) // 2, 40, 900, 60)
-        self.QuestionL.setStyleSheet("""background-color:#131313; color:white;""")
+        #self.QuestionL.setStyleSheet(""" color:white;""")
         self.QuestionL.setAlignment(Qt.AlignCenter)
 
         self.QuestionEnL=QLabel(self)
         self.QuestionEnL.setText(Questions_inf[Random_index[self.question_counter]].english)
-        self.QuestionEnL.setFont(QFont("Times", 35))
+        self.QuestionEnL.setFont(QFont("Times", 28))
         self.QuestionEnL.setGeometry((window_size[0] - 900) // 2, 120, 900, 60)
-        self.QuestionEnL.setStyleSheet("""background-color:#131313; color:white;""")
+        #self.QuestionEnL.setStyleSheet("""color:white;""")
         self.QuestionEnL.setAlignment(Qt.AlignCenter)
 
         self.QuestionRusL=QLabel(self)
         self.QuestionRusL.setText(Questions_inf[Random_index[self.question_counter]].russian)
-        self.QuestionRusL.setFont(QFont("Times", 30))
+        self.QuestionRusL.setFont(QFont("Times", 25))
         self.QuestionRusL.setGeometry((window_size[0] - 900) // 2, 200, 900, 60)
-        self.QuestionRusL.setStyleSheet("""background-color:rgba(19,19,19,0.75); color:white;""")
+        #self.QuestionRusL.setStyleSheet(""" color:white;""")
         self.QuestionRusL.setAlignment(Qt.AlignCenter)
 
 
@@ -70,12 +74,20 @@ class infinitive_window(QWidget):
     def next(self):
         if self.line.text() == Questions_inf[Random_index[self.question_counter]].answer:
             pass
+        else:
+            pass
         if self.question_counter != 14:
             self.question_counter += 1
         else:
-            pass
+            print("sds")
+            self.showAnswer()
+
         self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
         self.QuestionEnL.setText(Questions_inf[Random_index[self.question_counter]].english)
         self.QuestionRusL.setText(Questions_inf[Random_index[self.question_counter]].russian)
         self.line.clear()
+    
+    def showAnswer(self):
+        self.AnswerWindow=AnswerWindow()
+        self.AnswerWindow.show()
         
