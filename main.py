@@ -50,6 +50,24 @@ class MainApp(QWidget):
         self.button4.setStyleSheet(button_style)
         self.button4.clicked.connect(self.openMixed)
 
+        self.button1=QPushButton("Present Simple", self)
+        self.button1.setFont(QFont("Times", 16))
+        self.button1.setGeometry(500, 400, 320, 80)
+        self.button1.setStyleSheet(button_style)
+        self.button1.clicked.connect(self.openPresentSimple)
+        
+        self.button2=QPushButton("Past Simple", self)
+        self.button2.setFont(QFont("Times", 16))
+        self.button2.setGeometry(500, 400, 320, 80)
+        self.button2.setStyleSheet(button_style)
+        self.button2.clicked.connect(self.openPastSimple)
+
+        self.button3=QPushButton("Present Perfect", self)
+        self.button3.setFont(QFont("Times", 16))
+        self.button3.setGeometry(500, 400, 320, 80)
+        self.button3.setStyleSheet(button_style)
+        self.button3.clicked.connect(self.openPresentPerfect)
+
         self.verbButton=QPushButton("Неправильные глаголы", self)
         self.verbButton.setFont(QFont("Times", 8))
         self.verbButton.setGeometry((window_size[0] - 500) // 2, window_size[1] - 150, 500, 80)
@@ -71,6 +89,17 @@ class MainApp(QWidget):
         self.mixedWindow = mixed_window()
         self.mixedWindow.show()
         
+    def openPresentSimple(self):
+        self.presentSimpleWindow = ...
+        self.presentSimpleWindow.show()
+
+    def openPastSimple(self):
+        self.pastSimpleWindow = ...
+        self.pastSimpleWindow.show()
+    
+    def openPresentPerfect(self):
+        self.presentPerfectWindow = ...
+        self.presentPerfectWindow.show()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
