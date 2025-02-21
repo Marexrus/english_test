@@ -5,9 +5,6 @@ from PyQt5.QtGui import QFont,QIcon,QPixmap
 from static.window import *
 from static.styles import *
 from windows.verbHelp import *
-from windows.infinitive_window import *
-from windows.pastSimple_window import *
-from windows.pastParticiple_window import *
 from windows.mixed_window import *
 
 
@@ -47,27 +44,6 @@ class MainApp(QWidget):
         self.main_l.move(int((window_size[0] // 2) - (self.main_l.width() * 3)), 60)
         #self.main_l.setStyleSheet(default_text)
 
-        self.button1 = QPushButton(self)
-        self.button1.setText("Infinitive")
-        self.button1.setFont(QFont("Times", 16))
-        self.button1.setGeometry(90, 280, 320, 80)
-        self.button1.setStyleSheet(button_style)
-        self.button1.clicked.connect(self.openInfinitive)
-
-        self.button2 = QPushButton(self)
-        self.button2.setText("Past Simple")
-        self.button2.setFont(QFont("Times", 16))
-        self.button2.setGeometry(500, 280, 320, 80)
-        self.button2.setStyleSheet(button_style)
-        self.button2.clicked.connect(self.openPastSimple)
-
-        self.button3 = QPushButton(self)
-        self.button3.setText("Past Participle")
-        self.button3.setFont(QFont("Times", 16))
-        self.button3.setGeometry(90, 400, 320, 80)
-        self.button3.setStyleSheet(button_style)
-        self.button3.clicked.connect(self.openPastParticiple)
-
         self.button4=QPushButton("Смешанный", self)
         self.button4.setFont(QFont("Times", 16))
         self.button4.setGeometry(500, 400, 320, 80)
@@ -91,18 +67,6 @@ class MainApp(QWidget):
         self.verbHelp = verbHelp()
         self.verbHelp.show()
     
-    def openInfinitive(self):
-        self.infinitive_window = infinitive_window()
-        self.infinitive_window.show()
-
-    def openPastSimple(self):
-        self.pastsimple_window = pastSimple_window()
-        self.pastsimple_window.show()
-    
-    def openPastParticiple(self):
-        self.pastParticiple_window = pastParticiple_window()
-        self.pastParticiple_window.show()
-
     def openMixed(self):
         self.mixedWindow = mixed_window()
         self.mixedWindow.show()
