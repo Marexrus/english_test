@@ -6,6 +6,9 @@ from static.window import *
 from static.styles import *
 from windows.verbHelp import *
 from windows.mixed_window import *
+from windows.pastSimple import *
+from windows.presentSimple import *
+from windows.presentPerfect import *
 
 
 class InfinitiveWindow(QWidget):
@@ -91,15 +94,15 @@ class MainApp(QWidget):
         self.mixedWindow.show()
         
     def openPresentSimple(self):
-        self.presentSimpleWindow = ...
+        self.presentSimpleWindow = presentSimple()
         self.presentSimpleWindow.show()
 
     def openPastSimple(self):
-        self.pastSimpleWindow = ...
+        self.pastSimpleWindow = pastSimple()
         self.pastSimpleWindow.show()
     
     def openPresentPerfect(self):
-        self.presentPerfectWindow = ...
+        self.presentPerfectWindow = presentPerfect()
         self.presentPerfectWindow.show()
 
 if __name__ == '__main__':
