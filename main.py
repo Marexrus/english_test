@@ -53,7 +53,7 @@ class MainApp(QWidget):
         self.button4.setStyleSheet(button_style_go)
         self.button4.clicked.connect(self.openMixed)
 
-        self.button4=QPushButton("Present S1mple", self)
+        self.button4=QPushButton("Present Simple", self)
         self.button4.setFont(QFont("Times", 14))
         self.button4.setGeometry(120, 400, 290, 80)
         self.button4.setStyleSheet(button_style)

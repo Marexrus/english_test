@@ -78,13 +78,13 @@ class mixed_window(QWidget):
             Array.append(Answer(Questions_mixed[Random_index[self.question_counter]].english,Questions_mixed[Random_index[self.question_counter]].answer, True))
         else:
             Array.append(Answer(Questions_mixed[Random_index[self.question_counter]].english,Questions_mixed[Random_index[self.question_counter]].answer, False))
-        if self.question_counter != 14:
+        if self.question_counter != 29:
             self.question_counter += 1
         else:
             self.showAnswer()
             Array.clear()
 
-        self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
+        self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 30")
         self.QuestionEnL.setText(Questions_mixed[Random_index[self.question_counter]].english)
         self.QuestionRusL.setText(Questions_mixed[Random_index[self.question_counter]].russian)
         self.line.clear()
