@@ -4,58 +4,40 @@ class Question:
         self.russian = russian
         self.answer = answer
 
-Questions_inf = [
+Questions_mixed = [
+    # Present Simple
     Question("I ___ to school every day.", "Я хожу в школу каждый день.", "go"),
-    Question("She ___ a book right now.", "Она читает книгу прямо сейчас.", "is reading"),
-    Question("They ___ pizza for dinner yesterday.", "Они заказали пиццу на ужин вчера.", "ordered"),
-    Question("We ___ to the beach last weekend.", "Мы ездили на пляж на прошлых выходных.", "went"),
-    Question("He ___ his homework every evening.", "Он делает домашнее задание каждый вечер.", "does"),
-    Question("I ___ never ___ to Paris.", "Я никогда не был в Париже.", "have been"),
-    Question("The sun ___ in the east.", "Солнце встает на востоке.", "rises"),
-    Question("She ___ to the gym three times a week.", "Она ходит в спортзал три раза в неделю.", "goes"),
-    Question("They ___ a new car next month.", "Они купят новую машину в следующем месяце.", "will buy"),
-    Question("I ___ my keys at home this morning.", "Я забыл свои ключи дома сегодня утром.", "left"),
-    Question("He ___ his phone while he was running.", "Он уронил свой телефон, когда бежал.", "dropped"),
-    Question("We ___ the movie last night.", "Мы смотрели фильм прошлой ночью.", "watched"),
-    Question("She ___ to the party if she has time.", "Она пойдет на вечеринку, если у нее будет время.", "will go"),
-    Question("I ___ already ___ my breakfast.", "Я уже позавтракал.", "have eaten"),
-    Question("They ___ playing football in the park.", "Они играют в футбол в парке.", "are")
-]
+    Question("She ___ a book every evening.", "Она читает книгу каждый вечер.", "reads"),
+    Question("They ___ football on weekends.", "Они играют в футбол по выходным.", "play"),
+    Question("He ___ his homework after school.", "Он делает домашнюю работу после школы.", "does"),
+    Question("We ___ to the park on Sundays.", "Мы ходим в парк по воскресеньям.", "go"),
+    Question("You ___ coffee in the morning.", "Ты пьешь кофе утром.", "drink"),
+    Question("It ___ a lot in this region.", "Здесь часто идет дождь.", "rains"),
+    Question("She ___ to music every day.", "Она слушает музыку каждый день.", "listens"),
+    Question("They ___ English at school.", "Они учат английский в школе.", "study"),
+    Question("He ___ his bike to work.", "Он ездит на работу на велосипеде.", "rides"),
 
-Questions_past_simple = [
-    Question("I ___ to the park yesterday.", "Я ходил в парк вчера.", "went"),
-    Question("She ___ a cake for her birthday.", "Она испекла торт на свой день рождения.", "baked"),
-    Question("They ___ football last weekend.", "Они играли в футбол на прошлых выходных.", "played"),
-    Question("We ___ a movie last night.", "Мы смотрели фильм прошлой ночью.", "watched"),
-    Question("He ___ his homework after school.", "Он сделал домашнее задание после школы.", "did"),
-    Question("I ___ my keys on the table this morning.", "Я оставил свои ключи на столе сегодня утром.", "left"),
-    Question("She ___ to the store to buy some milk.", "Она пошла в магазин купить молока.", "went"),
-    Question("They ___ their grandparents last summer.", "Они навещали своих бабушку и дедушку прошлым летом.", "visited"),
-    Question("We ___ a lot of photos during our trip.", "Мы сделали много фотографий во время нашей поездки.", "took"),
-    Question("He ___ his bike to school yesterday.", "Он ехал на велосипеде в школу вчера.", "rode"),
-    Question("I ___ a letter to my friend last week.", "Я написал письмо своему другу на прошлой неделе.", "wrote"),
-    Question("She ___ her phone at home this morning.", "Она забыла свой телефон дома сегодня утром.", "forgot"),
-    Question("They ___ the bus to get to the city center.", "Они сели на автобус, чтобы добраться до центра города.", "took"),
-    Question("We ___ dinner at a nice restaurant last night.", "Мы ужинали в хорошем ресторане прошлой ночью.", "had"),
-    Question("He ___ his room before the guests arrived.", "Он убрал свою комнату до прихода гостей.", "cleaned")
-]
+    # Past Simple
+    Question("I ___ to the store yesterday.", "Я ходил в магазин вчера.", "went"),
+    Question("She ___ a cake last night.", "Она испекла торт прошлой ночью.", "made"),
+    Question("They ___ to the cinema last weekend.", "Они ходили в кино на прошлых выходных.", "went"),
+    Question("He ___ his keys at home.", "Он забыл свои ключи дома.", "left"),
+    Question("We ___ a great time at the party.", "Мы отлично провели время на вечеринке.", "had"),
+    Question("You ___ the door open.", "Ты оставил дверь открытой.", "left"),
+    Question("It ___ a lot last week.", "На прошлой неделе часто шел дождь.", "rained"),
+    Question("She ___ her phone at home.", "Она забыла свой телефон дома.", "left"),
+    Question("They ___ the movie last night.", "Они смотрели фильм прошлой ночью.", "saw"),
+    Question("He ___ his homework yesterday.", "Он сделал домашнюю работу вчера.", "did"),
 
-Questions_past_participle = [
-    Question("I have ___ the book.", "Я прочитал книгу.", "read"),
-    Question("She has ___ her homework.", "Она сделала домашнее задание.", "done"),
-    Question("They have ___ to Paris.", "Они ездили в Париж.", "been"),
-    Question("We have ___ the movie.", "Мы посмотрели фильм.", "watched"),
-    Question("He has ___ his keys.", "Он потерял свои ключи.", "lost"),
-    Question("I have never ___ sushi.", "Я никогда не пробовал суши.", "tried"),
-    Question("She has ___ a new car.", "Она купила новую машину.", "bought"),
-    Question("They have ___ the project.", "Они завершили проект.", "completed"),
-    Question("We have ___ the cake.", "Мы испекли торт.", "baked"),
-    Question("He has ___ his room.", "Он убрал свою комнату.", "cleaned"),
-    Question("I have ___ the letter.", "Я написал письмо.", "written"),
-    Question("She has ___ the flowers.", "Она сорвала цветы.", "picked"),
-    Question("They have ___ the game.", "Они выиграли игру.", "won"),
-    Question("We have ___ the news.", "Мы услышали новости.", "heard"),
-    Question("He has ___ his phone.", "Он сломал свой телефон.", "broken")
-]
-
-Questions_mixed = Questions_inf + Questions_past_simple + Questions_past_participle        
+    # Present Perfect
+    Question("I ___ already ___ my homework.", "Я уже сделал домашнюю работу.", "have done"),
+    Question("She ___ just ___ a new book.", "Она только что прочитала новую книгу.", "has read"),
+    Question("They ___ already ___ the movie.", "Они уже посмотрели фильм.", "have seen"),
+    Question("He ___ never ___ to Paris.", "Он никогда не был в Париже.", "has been"),
+    Question("We ___ just ___ the dishes.", "Мы только что помыли посуду.", "have washed"),
+    Question("You ___ already ___ the letter.", "Ты уже написал письмо.", "have written"),
+    Question("It ___ just ___ raining.", "Дождь только что закончился.", "has stopped"),
+    Question("She ___ already ___ her breakfast.", "Она уже позавтракала.", "has eaten"),
+    Question("They ___ never ___ sushi.", "Они никогда не ели суши.", "have eaten"),
+    Question("He ___ just ___ the door.", "Он только что закрыл дверь.", "has closed")
+]        

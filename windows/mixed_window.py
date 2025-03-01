@@ -29,7 +29,7 @@ class mixed_window(QWidget):
         #self.setStyleSheet(background_window)
 
         self.QuestionL=QLabel(self)
-        self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 15")
+        self.QuestionL.setText(f"Вопрос {self.question_counter + 1} из 30")
         self.QuestionL.setFont(QFont("Times", 40))
         self.QuestionL.setGeometry((window_size[0] - 900) // 2, 40, 900, 60)
         #self.QuestionL.setStyleSheet(""" color:white;""")
